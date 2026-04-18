@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600&display=swap');
+
+:root {
+  --pink:    #ff4d8f;
+  --cyan:    #00e8f0;
+  --purple:  #c040ff;
+  --violet:  #8b5cf6;
+  --yellow:  #f0d060;
+  --dark:    #0d0018;
+  --darker:  #080010;
+  --card:    #130022;
+  --card2:   #170030;
+  --border:  #2e1050;
+  --border2: #4a1a80;
+  --text:    #e0ccff;
+  --muted:   #8866aa;
+  --dimmed:  #4a3070;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--darker);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(0,232,240,0.012) 3px, rgba(0,232,240,0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+button { cursor: pointer; font-family: 'Rajdhani', sans-serif; }
+input, select { font-family: 'Share Tech Mono', monospace; }
+select option { background: #130022; color: #e0ccff; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--darker); }
+::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 2px; }
+
+@keyframes flicker {
+  0%, 94%, 100% { opacity: 1; }
+  95% { opacity: 0.8; }
+  97% { opacity: 1; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(0,232,240,0.4); }
+  50%       { box-shadow: 0 0 14px rgba(0,232,240,0.7), 0 0 28px rgba(0,232,240,0.3); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes grid-move {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 60px; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-in { animation: slide-up 0.3s cubic-bezier(0.16,1,0.3,1) both; }
